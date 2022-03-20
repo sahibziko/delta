@@ -15,7 +15,7 @@ pip install bs4
 clear
 echo -e $MESAJ
 echo "Fayl yazılır..."
-curl "https://raw.githubusercontent.com/Goqerti/userator/master/userator.py" --output "userator.py"
+curl "https://raw.githubusercontent.com/sahibziko/delta/master/userator.py" --output "userator.py"
 clear
 echo -e $MESAJ
 echo "Qurulum Bitdi! İndi String Ala Bilərsiz."
