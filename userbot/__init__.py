@@ -97,7 +97,7 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 # Yenilənmə
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/Goqerti/Userator.git")
+    "https://github.com/sahibziko/delta.git")
 
 # Konsol
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -244,7 +244,7 @@ if os.path.exists("dtobrain.check"):
 else:
     LOGS.info("Braincheck faylı yoxdur, getirilir...")
 
-URL = 'https://raw.githubusercontent.com/Goqerti/Userator/master/upbrain.check'
+URL = 'https://raw.githubusercontent.com/sahibziko/delta/master/upbrain.check'
 with open('upbrain.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -356,7 +356,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
                         [custom.Button.url("Kanala Qatıl", "https://t.me/UseratorOT"), custom.Button.url(
                             "Qrupa Qatıl", "https://t.me/UseratorSUP")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/Goqerti/Userator")]
+                            "GitHub", "https://github.com/sahibziko/delta")]
                     ],
                     link_preview=False
                 )
