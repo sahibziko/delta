@@ -54,7 +54,7 @@ async def text2doc(event):
         with open(metn, "w") as fayl:
             fayl.write(cvb.message)
         await event.delete()
-        await event.client.send_file(event.chat_id, metn, caption="[U S Σ R Δ T O R](t.me/UseratorSUP)", force_document=True)
+        await event.client.send_file(event.chat_id, metn, caption="[U S Σ R Δ T O R](t.me/DTOTeam)", force_document=True)
         os.remove(metn)
     else:
         await event.edit((LANG['T4']))
