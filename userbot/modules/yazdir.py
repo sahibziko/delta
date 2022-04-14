@@ -22,8 +22,8 @@ from telethon import events
 from userbot import BRAIN_CHECKER, WHITELIST
 from userbot.events import register
 
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.gg$")
-@register(incoming=True, from_users=WHITELIST, pattern="^.gg$")
+@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.yazdir ?(.*)")
+@register(incoming=True, from_users=WHITELIST, pattern="^.yazdir ?(.*)")
 async def _(q):
     variable = q.pattern_match.group(1)
     await q.client.send_message(q.chat_id, variable)
