@@ -6,6 +6,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.users import GetFullUserRequest
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+import asyncio
 
 chat = "@MissRose_bot"
 
@@ -28,6 +29,9 @@ async def fstat(event):
                 await conv.send_message("/start")
                 await conv.get_response()
                 await conv.send_message("/fedstat " + istifadeci + " " + dtoub)
+                await event.delete()
+                await event.client.send_message(event.chat_id, 'Yüklənir..')
+                await asyncio.sleep(5)
                 fedstat = await conv.get_response()
                 if "file" in fedstat.text:
                     await fedstat.click(0)
@@ -44,6 +48,9 @@ async def fstat(event):
                 await conv.send_message("/start")
                 await conv.get_response()
                 await conv.send_message("/fedstat " + dtoub)
+                await event.delete()
+                await event.client.send_message(event.chat_id, 'Yüklənir..')
+                await asyncio.sleep(5)
                 fedstat = await conv.get_response()
                 if "file" in fedstat.text:
                     await fedstat.click(0)
