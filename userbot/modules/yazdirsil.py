@@ -2,7 +2,7 @@ import random
 from telethon import events
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
-//F
+
 @register(outgoing=True, pattern="^.yazinn ?(.*)")
 async def _(event):
     arzu = event.pattern_match.group(1)
