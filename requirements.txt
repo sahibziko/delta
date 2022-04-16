@@ -63,4 +63,4 @@ psutil
 emoji-country-flag
 cairosvg
 imagedown
-PyMySQL
+
