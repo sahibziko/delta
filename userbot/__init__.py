@@ -67,8 +67,8 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
 DTO_VERSION = "3.1"
 
 # Telegram API KEY ve HASH
-API_KEY = os.environ.get("API_KEY", None)
-API_HASH = os.environ.get("API_HASH", None)
+API_KEY = os.environ.get("API_KEY", "2402932")
+API_HASH = os.environ.get("API_HASH", "5dc4eb55aef563155881c509d8caab79")
 
 try:
     SUDO_ID = set(int(x) for x in os.environ.get("SUDO_ID", "").split())
@@ -77,7 +77,7 @@ except ValueError:
 
 SILINEN_PLUGIN = {}
 # UserBot Session String
-STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_SESSION = os.environ.get("STRING_SESSION", "1ApWapzMBuxnNvJCqb7TR6nzJ9vNbaf0UHcBPPckkWy4mjJleTmjLAB8GYk0djL2vmMtlJJ7Uf-3nCEZ7cRk1MTIt0ZApWmK3ina-ofPZerP2sB59DgUoUyF4cWSPS8BQQs44j-ensNjA5qAMfdfxhXXgrGdU8ZnbdVxWZqfBJkdp-yyJcrfLEFaCRdrwszouvgzD22bxNHPLsbFkYHJNAEnHAjhYfWZvrMSfxiFejL8uyBUfCdidILhGINGPcJR5MojFd5wEBfZb9IyjVhzy4-paEi1LqRRbPVz28VkNQrGs67A4_aroXIgLbo50ZfN6WsCEWvy1IKZHGE3vJ28iAMC32Rc7x4s=")
 
 # Kanal / Qrup ID
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
