@@ -1,4 +1,4 @@
-Userator+="\nU S Σ R Δ T O R ✨"
+Userator+="\n[ʀᴀ𝟽] 𝓤𝓼𝓮𝓻𝓑𝓸𝓽 𝓐𝓴𝓽𝓲𝓿𝓭𝓲𝓻 :) ✨"
 MESAJ+="\n "
 MESAJ+="\n✅Kanal: @UseratorOT"
 MESAJ+="\n✅Qrup: @UseratorSup"
