@@ -64,3 +64,5 @@ emoji-country-flag
 cairosvg
 imagedown
 PyMySQL
+youtube-dl
+ytdl
