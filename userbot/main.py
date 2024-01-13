@@ -155,7 +155,7 @@ try:
 
     # PLUGIN MESAJLARI AYARLIYORUZ
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": "`𝙰 𝙿 𝙴 𝚇✨ - 𝓤𝓼𝓮𝓻𝓫𝓸𝓽 𝓐𝓴𝓽𝓲𝓿𝓭𝓲𝓻!`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Bye-bye mən qrupdan çıxdım 🥰`", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, banlandı!`", "mute": "{mention}`, susduruldu!`", "approve": "{mention}`, mənə mesaj göndərə bilərsən!`", "disapprove": "{mention}`, artıq mənə mesaj göndərə bilmərsən!`", "block": "{mention}`, bloklandın!`", "restart": "`𝙰 𝙿 𝙴 𝚇 - yenidən başladılır...`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": "`𝙰 𝙿 𝙴 𝚇 ✨ - 𝓤𝓼𝓮𝓻𝓫𝓸𝓽 𝓐𝓴𝓽𝓲𝓿𝓭𝓲𝓻!`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`Bye-bye mən qrupdan çıxdım 🥰`", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, banlandı!`", "mute": "{mention}`, susduruldu!`", "approve": "{mention}`, mənə mesaj göndərə bilərsən!`", "disapprove": "{mention}`, artıq mənə mesaj göndərə bilmərsən!`", "block": "{mention}`, bloklandın!`", "restart": "`𝙰 𝙿 𝙴 𝚇 - yenidən başladılır...`"}
 
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block", "restart"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
