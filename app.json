@@ -54,7 +54,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "Bura toxunmayın.",
-      "value": "https://github.com/goqerti/userator",
+      "value": "https://github.com/sahibziko/delta",
       "required": true
     },
     "COUNTRY": {
