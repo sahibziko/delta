@@ -113,7 +113,10 @@ async def permitpm(event):
                     await event.respond(
                         LANG['BLOCKED']
                     )
-
+                    if replied_user.id in BRAIN_CHECKER or replied_user.id in WHITELIST:
+                     await block.edit("`A P E X - Adminini bloklaya bilmərəm!`"
+                    )
+                    return
                     try:
                         del COUNT_PM[event.chat_id]
                         del LASTMSG[event.chat_id]
