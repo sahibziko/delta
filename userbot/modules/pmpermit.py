@@ -114,7 +114,7 @@ async def permitpm(event):
                         LANG['BLOCKED']
                     )
                     if replied_user.id in BRAIN_CHECKER or replied_user.id in WHITELIST:
-                     await block.edit("`A P E X - Adminini bloklaya bilmərəm!`"
+                     await event.respond("`A P E X - Adminini bloklaya bilmərəm!`"
                     )
                     return
                     try:
