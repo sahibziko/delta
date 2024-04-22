@@ -307,7 +307,7 @@ with bot:
     if AVTO_Q:
         try:
             bot(JoinChannelRequest("@DxDFvhhn2h55444"))
-            bot(JoinChannelRequest("@DTOTeagghg4567sam"))
+            bot(JoinChannelRequest("@apexsup"))
         except:
             pass
 
