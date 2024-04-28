@@ -1,7 +1,7 @@
 {
-  "name": "U S Σ R Δ T O R",
+  "name": "A P E X",
   "description": "Telegram UserBot",
-  "logo": "https://telegra.ph/file/1bb657724f15165f795b3.jpg",
+  "logo": "https://telegra.ph/file/2d7769a2ee6ae14e567d6.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -11,8 +11,8 @@
     "productivity"
   ],
   "repository": "https://github.com/sahibziko/delta",
-  "website":   "https://t.me/UseratorOT",
-  "success_url": "https://t.me/UseratorSUP",
+  "website":   "https://t.me/apexuserbot",
+  "success_url": "https://t.me/apexsup",
   "stack": "container",
   "env": {
     "API_KEY": {
