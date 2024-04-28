@@ -34,7 +34,7 @@ class Config(object):
     NO_LOG_P_M_S = bool(os.environ.get("NO_LOG_P_M_S", True))
     THUMB_IMAGE = os.environ.get(
         "THUMB_IMAGE",
-        "https://telegra.ph/file/3518fa8ef912f5590f35e.jpg")
+        "https://telegra.ph/file/2d7769a2ee6ae14e567d6.jpg")
     GENIUS_API_TOKEN = os.environ.get("GENIUS_API_TOKEN", None)
     MAX_MESSAGE_SIZE_LIMIT = 4095
     UB_BLACK_LIST_CHAT = set(
