@@ -36,7 +36,7 @@ echo -e $MESAJ
 echo -e $BOSLUQ
 echo "Repo ✅"
 echo -e $BOSLUQ
-rm -rf Qurulum
+rm -rf apexq
 git clone https://github.com/sahibziko/apexq
 clear
 echo -e $BOSLUQ
