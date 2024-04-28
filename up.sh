@@ -1,7 +1,7 @@
 Userator+="\n[ʀᴀ𝟽] 𝓤𝓼𝓮𝓻𝓑𝓸𝓽 𝓐𝓴𝓽𝓲𝓿𝓭𝓲𝓻 :) ✨"
 MESAJ+="\n "
-MESAJ+="\n✅Kanal: @UseratorOT"
-MESAJ+="\n✅Qrup: @UseratorSup"
+MESAJ+="\n✅Kanal: @apexuserbot"
+MESAJ+="\n✅Qrup: @apexsup"
 MESAJ+="\n "
 KOMEK+="\n "
 BOSLUQ="\n "
@@ -37,7 +37,7 @@ echo -e $BOSLUQ
 echo "Repo ✅"
 echo -e $BOSLUQ
 rm -rf Qurulum
-git clone https://github.com/uumud/Qurulum
+git clone https://github.com/sahibziko/apexq
 clear
 echo -e $BOSLUQ
 echo -e $MESAJ
