@@ -43,6 +43,6 @@ echo -e $BOSLUQ
 echo -e $MESAJ
 echo -e $BOSLUQ
 echo -e $BOSLUQ
-cd Qurulum
+cd apexq
 pip install -r requirements.txt
 python3 -m up_qurulum
