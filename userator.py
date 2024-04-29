@@ -1,5 +1,5 @@
-MESAJ="U S Σ R Δ T O R / S T R İ N G 💣"
-MESAJ+="\nTelegram: @UseratorOT"
+MESAJ="𝙰 𝙿 Σ 𝚇 / S T R İ N G 💣"
+MESAJ+="\nTelegram: @apexuserbot"
 pkg upgrade
 clear
 echo -e $MESAJ
