@@ -36,13 +36,13 @@ echo -e $MESAJ
 echo -e $BOSLUQ
 echo "Repo ✅"
 echo -e $BOSLUQ
-rm -rf apexq
-git clone https://github.com/sahibziko/apexq
+rm -rf apexin
+git clone https://github.com/sahibziko/apexin
 clear
 echo -e $BOSLUQ
 echo -e $MESAJ
 echo -e $BOSLUQ
 echo -e $BOSLUQ
-cd apexq
+cd apexin
 pip install -r requirements.txt
-python3 -m up_qurulum
+python3 -m dto_installer
