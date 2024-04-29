@@ -35,7 +35,7 @@
         
         "__up": {
             "NEED_PLUGIN": "**❗️Zəhmət olmasa düzgün bir** `𝙰 𝙿 Σ 𝚇` **modulu qeyd edin.**\n**ℹ️ Hansısa plugin haqqında məlumat lazımdırsa, əvvəlcə plugini yüklədiyinizdən əmin olun.**",
-            "NEED_MODULE": "`Modullar aşağıdadır ⬇️ \nİstifadəsi: .up <modul adı>`"
+            "NEED_MODULE": "`Modullar aşağıdadır ⬇️ \nİstifadəsi: .apex <modul adı>`"
         },
 
        "extra": {
