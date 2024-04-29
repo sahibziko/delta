@@ -798,7 +798,7 @@
             "GIT_ERROR": "Git xətası!",
             "NOT_GIT": "qovluğlu bir git reposu kimi görünmür. \nAncaq botu .update now əmri ilə zorla yeniləməklə bu problemi həll edə bilərsiniz.",
             "INVALID_BRANCH": "**[Yenilənmə]:**` Düşünürəm ki, 𝙰 𝙿 Σ 𝚇 botunuzu dəyişdirdiniz və öz filialınızdan istifadə edirsiniz.\nBu vəziyyət yenilənməni edənin başını qarışdırır,\nGüncəllənmə haradan çəkiləcək?\nXahiş edirəm rəsmi repodan DTÖUserBotunu istifadə edin.`",
-            "UPDATE": "\n`Botun` **Ən güncəl versiyadadır!** `Branch:` **{}**\n",
+            "UPDATE": "🔍 \n`Botun` **Ən güncəl versiyadadır!** `Branch:` **{}**\n",
             "WAS_UPDATE": "🌐 **{} üçün yeni güncəlləmə mövcuddur!\n\nDəyişikliklər:**\n`{}`",
             "BIG": "`Dəyişikliklərin siyahısı çox böyükdür, ona bir fayl kimi baxmalısınız.`",
             "DO_UPDATE": "𝙰 𝙿 Σ 𝚇 🚀\n `Güncəllənməni etmək üçün \".update now\" komandasını istifadə edin.`",
