@@ -148,7 +148,7 @@ LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 # Alive şəkil
 IMG = os.environ.get(
     "IMG",
-    "https://telegra.ph/file/bfdeb79cc1e15d0155334.mp4")
+    "https://telegra.ph/file/2d7769a2ee6ae14e567d6.jpg")
 
 # Anti Spambot
 ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
@@ -165,7 +165,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@UseratorOT | ")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@apexsup | ")
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
@@ -202,7 +202,7 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "@UseratorOT Paketi")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "@apexsup Paketi")
 
 # Avto
 AVTO_Q = sb(os.environ.get("AVTO_Q", "True"))
@@ -306,8 +306,8 @@ def butonlastir(sayfa, moduller):
 with bot:
     if AVTO_Q:
         try:
-            bot(JoinChannelRequest("@DxDFvhhn2h55444"))
             bot(JoinChannelRequest("@apexsup"))
+            bot(JoinChannelRequest("@apexuserbot"))
         except:
             pass
 
@@ -319,9 +319,9 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Salam mən ` @UseratorOT`! Mən sahibimə (`@{me.username}`) kömək olmaq üçün varam, yəni sənə köməkçi ola bilmərəm :/ Ama sən da bir DTÖUserBot quraşdıra bilərsən; Kanala bax` @DTOUserBot')
+                await event.reply(f'`Salam mən ` @apexuserbot`! Mən sahibimə (`@{me.username}`) kömək olmaq üçün varam, yəni sənə köməkçi ola bilmərəm :/ Ama sən da bir DTÖUserBot quraşdıra bilərsən; Kanala bax` @DTOUserBot')
             else:
-                await event.reply(f'`U S Σ R Δ T O R`')
+                await event.reply(f'`𝙰 𝙿 Σ 𝚇`')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
@@ -333,7 +333,7 @@ with bot:
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Xaiş sadəcə .kömek əmri ilə işladin",
-                    text=f"**U S Σ R Δ T O R** [UseratorOT](https://t.me/UseratorOT) __⚡__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
+                    text=f"**𝙰 𝙿 Σ 𝚇** [𝙰 𝙿 Σ 𝚇](https://t.me/apexuserbot) __⚡__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -349,12 +349,12 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@UseratorOT",
-                    text="""@UseratorOT'u işlətməyi yoxlayın!
+                    "@apexuserbot",
+                    text="""@apexuserbot'u işlətməyi yoxlayın!
 Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmayın, siz başqasının botunu idarə edə bilmərsiz! Altdakı GitHub adresindən bütün qurulum haqda məlumat var.""",
                     buttons=[
-                        [custom.Button.url("Kanala Qatıl", "https://t.me/UseratorOT"), custom.Button.url(
-                            "Qrupa Qatıl", "https://t.me/DTOTeam")],
+                        [custom.Button.url("Kanala Qatıl", "https://t.me/apexuserbot"), custom.Button.url(
+                            "Qrupa Qatıl", "https://t.me/apexsup")],
                         [custom.Button.url(
                             "GitHub", "https://github.com/sahibziko/delta")]
                     ],
@@ -365,11 +365,11 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @UseratorOT qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @apexuserbot qur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"**U S Σ R Δ T O R** [UseratorOT](https://t.me/UseratorOT) __işləyir__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
+                f"**𝙰 𝙿 Σ 𝚇** [UseratorOT](https://t.me/UseratorOT) __işləyir__\n\n**Yüklənən Modul Sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -377,7 +377,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @UseratorOT qur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @apexuserbot qur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -397,7 +397,7 @@ Hesabınızı bot'a çevirə bilərsiz və bunları işlədə bilərsiz. Unutmay
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @UseratorOT qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı düzəltməyə çalışma! Özünə bir @apexuserbot qur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
