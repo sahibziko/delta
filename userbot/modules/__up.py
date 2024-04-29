@@ -26,7 +26,7 @@ LANG = get_value("__up")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.up(?: |$)(.*)")
+@register(outgoing=True, pattern="^.apex(?: |$)(.*)")
 async def dto(event):
     args = event.pattern_match.group(1).lower()
     if args:
