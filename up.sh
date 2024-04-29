@@ -1,4 +1,4 @@
-Userator+="\n[ʀᴀ𝟽] 𝓤𝓼𝓮𝓻𝓑𝓸𝓽 𝓐𝓴𝓽𝓲𝓿𝓭𝓲𝓻 :) ✨"
+Userator+="\n𝙰 𝙿 Σ 𝚇 - AVTOMATIK QURULUM ✨"
 MESAJ+="\n "
 MESAJ+="\n✅Kanal: @apexuserbot"
 MESAJ+="\n✅Qrup: @apexsup"
