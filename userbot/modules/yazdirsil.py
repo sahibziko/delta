@@ -13,4 +13,4 @@ async def _(event):
        
 Help = CmdHelp('arzu')
 Help.add_command('arzu', '<arzunuz>', 'Arzunuzun reallaşmaq ehtimalını öyrənin', 'arzu Universitetə qəbul olmaq')
-Help.add_info('@UseratorOT `üçün hazırlanıb`').add()
+Help.add_info('𝙰 𝙿 Σ 𝚇 `üçün hazırlanıb`').add()
