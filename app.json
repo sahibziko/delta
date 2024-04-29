@@ -181,7 +181,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Həmişəlik profil biyoqrafiyası.",
-      "value": "U S Σ R Δ T O R @UseratorOT",
+      "value": "𝙰 𝙿 Σ 𝚇 @ApexSup",
       "required": false
     },
     "G_DRIVE_CLIENT_SECRET": {
@@ -221,7 +221,7 @@
     },
     "PAKET_ISMI": {
       "description": "Fırlat əmri paket adını seçin. Paket adı belə olacaq: @İstifadəçiAdın verdiyin dəyər",
-      "value": "@UseratorOT Paketi",
+      "value": "@apexuserbot Paketi",
       "required": false
     },
     "AVTO_Q": {
