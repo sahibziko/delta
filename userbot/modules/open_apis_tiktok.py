@@ -36,7 +36,7 @@ async def apis(event):
                 await event.delete()
                 return True
             else:
-                return await event.edit("Lütfen Bağlantınızı Kontrol Edin. Sorun hala devam ediyorsa destek ekibine ulaşın.")
+                return await event.edit("Zəhmət olmasa Bağlantınızı Yoxlayın. Problem hələ də davam edərsə, dəstək komandası ilə əlaqə saxlayın..")
 
 Help = CmdHelp('tiktok')
 Help.add_command('tiktok',
