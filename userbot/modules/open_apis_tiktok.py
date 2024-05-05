@@ -17,9 +17,9 @@ async def apis(event):
         txt = degerler.split()
         url = txt[0]
     except IndexError:
-        return await event.edit("**Lütfen Bir Tiktok Bağlantısı Girin!**")
+        return await event.edit("**zəhmət olmasa tiktok linki yazın.**")
 
-    await event.edit("__Video İndiriliyor..__")
+    await event.edit("__Video yüklənir..__")
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
         async with session.get('https://open-apis-rest.up.railway.app/api/tiktok?url=' + url) as response:
 
@@ -31,7 +31,7 @@ async def apis(event):
                 with open("./tt.mp4", "wb") as f:
                     f.write(resp.content)
 
-                await event.client.send_file(event.chat_id, './tt.mp4', caption="@AsenaUserBot ile Yüklendi.")
+                await event.client.send_file(event.chat_id, './tt.mp4', caption="@ApexUserBot ilə Yükləndi.")
                 os.remove("./tt.mp4")
                 await event.delete()
                 return True
@@ -41,8 +41,7 @@ async def apis(event):
 Help = CmdHelp('tiktok')
 Help.add_command('tiktok',
                  '<tiktok url>',
-                 'Tiktok üzerinden video indirir.',
-                 'tiktok https://vm.tiktok.com/ZSeKGPhsV'
+                 'Tiktok dan video yükləyər.'
                  )
-Help.add_info("@phaticusthiccy tarafından yapılmıştır.")
+Help.add_info("bu bir, @apexuserbot moduludur.")
 Help.add()
