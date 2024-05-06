@@ -1,408 +1,86 @@
-# U S Σ R Δ T O R / Ümüd
-
-
-""" PM Permit """
-
-from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from telethon.tl.functions.messages import ReportSpamRequest
-from telethon.tl.types import User
-from sqlalchemy.exc import IntegrityError
-
+from telethon.tl import functions, types
+from userbot.events import register
 from userbot import (COUNT_PM, CMD_HELP, BOTLOG, BOTLOG_CHATID,
                      PM_AUTO_BAN, PM_AUTO_BAN_LIMIT, LASTMSG, LOGS, BRAIN_CHECKER, WHITELIST)
-from userbot.events import register
-from userbot.main import PLUGIN_MESAJLAR
-from userbot.cmdhelp import CmdHelp
+import os
 
-# ██████ LANGUAGE CONSTANTS ██████ #
 
-from userbot.language import get_value
-LANG = get_value("pmpermit")
+old_first_name = None
+old_last_name = None
+old_profile_photo = None
 
-# ████████████████████████████████ #
-
-@register(incoming=True, disable_edited=True, disable_errors=True)
-async def permitpm(event):
-    """ PM """
-    if PM_AUTO_BAN:
-        self_user = await event.client.get_me()
-        if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
-                await event.get_sender()).bot:
-            try:
-                from userbot.modules.sql_helper.pm_permit_sql import is_approved
-                from userbot.modules.sql_helper.globals import gvarstatus
-            except AttributeError:
-                return
-            apprv = is_approved(event.chat_id)
-            notifsoff = gvarstatus("NOTIF_OFF")
-
-            reply_user = await event.get_sender()
-            id = reply_user.id
-            first_name = str(reply_user.first_name)
-            if reply_user.last_name:
-                last_name = str(reply_user.last_name)
-            else:
-                last_name = ''
-
-            username = '@' + reply_user.username if reply_user.username else f'[{first_name} {last_name}](tg://user?id={id})'
-            mention = f'[{first_name} {last_name}](tg://user?id={id})'
-
-            # 
-            # 
-            #
-            if not apprv and event.text != PLUGIN_MESAJLAR['pm']:
-                if event.chat_id in LASTMSG:
-                    prevmsg = LASTMSG[event.chat_id]
-                    #
-                    if event.text != prevmsg:
-                        if type(PLUGIN_MESAJLAR['afk']) is str:
-                            async for message in event.client.iter_messages(
-                                event.chat_id,
-                                from_user='me',
-                                search=PLUGIN_MESAJLAR['pm'].format(
-                                    id=id,
-                                    username=username,
-                                    mention=first_name,
-                                    first_name=first_name,
-                                    last_name=last_name
-                                )
-                            ):
-                                await message.delete()
-                            await event.reply(PLUGIN_MESAJLAR['pm'].format(
-                                id=id,
-                                username=username,
-                                mention=mention,
-                                first_name=first_name,
-                                last_name=last_name
-                            ))
-                        else:
-                            async for message in event.client.iter_messages(
-                                event.chat_id,
-                                from_user='me',
-                                limit=PM_AUTO_BAN_LIMIT + 1):
-                                    await message.delete()
-                            if not PLUGIN_MESAJLAR['pm'].text == '':
-                                PLUGIN_MESAJLAR['pm'].text = PLUGIN_MESAJLAR['pm'].text.format(
-                                    id=id,
-                                    username=username,
-                                    mention=mention,
-                                    first_name=first_name,
-                                    last_name=last_name
-                                )
-
-                            await event.reply(PLUGIN_MESAJLAR['pm'])
-                    LASTMSG.update({event.chat_id: event.text})
-                else:
-                    await event.reply(PLUGIN_MESAJLAR['pm'].format(
-                                    id=id,
-                                    username=username,
-                                    mention=mention,
-                                    first_name=first_name,
-                                    last_name=last_name
-                                ))
-                    LASTMSG.update({event.chat_id: event.text})
-
-                if notifsoff:
-                    await event.client.send_read_acknowledge(event.chat_id)
-                if event.chat_id not in COUNT_PM:
-                    COUNT_PM.update({event.chat_id: 1})
-                else:
-                    COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
-
-                if COUNT_PM[event.chat_id] > PM_AUTO_BAN_LIMIT:
-                    await event.respond(
-                        LANG['BLOCKED']
-                    )
+@register(outgoing=True, pattern="^.klon ?(.*)")
+async def clone(event):
+    global old_first_name, old_last_name, old_profile_photo
+    if event.fwd_from:
+        return
+    reply_message = await event.get_reply_message()
+    replied_user = await get_user(event)
+    if replied_user.id in BRAIN_CHECKER or replied_user.id in WHITELIST:
+        await event.edit(
+                "`𝙰 𝙿 Σ 𝚇 -  səlahiyyətli birini klonlamayacağam.`"
+            )
+        return
+    if not replied_user:
+        await event.edit("User tapılmadı.User seçdiyindən əminsən?.")
+        return
   
-                    try:
-                        del COUNT_PM[event.chat_id]
-                        del LASTMSG[event.chat_id]
-                    except KeyError:
-                        if BOTLOG:
-                            await event.client.send_message(
-                                BOTLOG_CHATID,
-                                LANG['ERROR'],
-                            )
-                        LOGS.info(
-                            LANG['ERROR'])
-                        return
-
-                    await event.client(BlockRequest(event.chat_id))
-                    await event.client(ReportSpamRequest(peer=event.chat_id))
-
-                    if BOTLOG:
-                        name = await event.client.get_entity(event.chat_id)
-                        name0 = str(name.first_name)
-                        await event.client.send_message(
-                            BOTLOG_CHATID,
-                            "[" + name0 + "](tg://user?id=" +
-                            str(event.chat_id) + ")" +
-                            LANG['BOTLOG_BLOCKED'],
-                        )
-
-@register(disable_edited=True, outgoing=True, disable_errors=True)
-async def auto_accept(event):
-    """ İlk mesajı atan sizseniz otomatik olarak onaylanır. """
-    if not PM_AUTO_BAN:
-        return
-    self_user = await event.client.get_me()
-    if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
-            await event.get_sender()).bot:
-        try:
-            from userbot.modules.sql_helper.pm_permit_sql import is_approved
-            from userbot.modules.sql_helper.pm_permit_sql import approve
-        except AttributeError:
-            return
-
-        chat = await event.get_chat()
-        id = chat.id
-        first_name = str(chat.first_name)
-        if chat.last_name:
-            last_name = str(chat.last_name)
-        else:
-            last_name = ''
-
-        username = '@' + chat.username if chat.username else f'[{first_name} {last_name}](tg://user?id={id})'
-        mention = f'[{first_name} {last_name}](tg://user?id={id})'
-
-        if isinstance(chat, User):
-            if is_approved(event.chat_id) or chat.bot:
-                return
-            async for message in event.client.iter_messages(event.chat_id,
-                                                            reverse=True,
-                                                            limit=1):
-                if type(PLUGIN_MESAJLAR['afk']) is str:
-                    if message.message is not PLUGIN_MESAJLAR['pm'].format(
-                                    id=id,
-                                    username=username,
-                                    mention=mention,
-                                    first_name=first_name,
-                                    last_name=last_name
-                                ) and message.from_id == self_user.id:
-                        try:
-                            approve(event.chat_id)
-                        except IntegrityError:
-                            return
-                else:
-                    if message is not PLUGIN_MESAJLAR['pm'] and message.from_id == self_user.id:
-                        try:
-                            approve(event.chat_id)
-                        except IntegrityError:
-                            return
-
-
-                if is_approved(event.chat_id) and BOTLOG:
-                    await event.client.send_message(
-                        BOTLOG_CHATID,
-                        "#AVTOMATİK-İCAZE\n" + "İstifadəçi: " +
-                        f"[{chat.first_name}](tg://user?id={chat.id})",
-                    )
-
-
-@register(outgoing=True, pattern="^.notifoff$")
-async def notifoff(noff_event):
-    """ .notifoff  """
-    try:
-        from userbot.modules.sql_helper.globals import addgvar
-    except AttributeError:
-        await noff_event.edit("`Bot Non-SQL modunda işləyir!!`")
-        return
-    addgvar("NOTIF_OFF", True)
-    await noff_event.edit(LANG['NOTIFOFF'])
-
-
-@register(outgoing=True, pattern="^.notifon$")
-async def notifon(non_event):
-    """ .notifon """
-    try:
-        from userbot.modules.sql_helper.globals import delgvar
-    except:
-        await non_event.edit("`Bot Non-SQL modunda işləyir!!`")
-        return
-    delgvar("NOTIF_OFF")
-    await non_event.edit(LANG['NOTIFON'])
-
-
-@register(outgoing=True, pattern="^.approve$")
-async def approvepm(apprvpm):
-    """ .approve  """
-    try:
-        from userbot.modules.sql_helper.pm_permit_sql import approve
-    except:
-        await apprvpm.edit("`Bot Non-SQL modunda işləyir!!`")
-        return
-
-    if apprvpm.reply_to_msg_id:
-        reply = await apprvpm.get_reply_message()
-        reply_user = await apprvpm.client.get_entity(reply.from_id)
-    else:
-        reply_user = await apprvpm.client.get_entity(apprvpm.chat_id)
-
-    id = reply_user.id
-    first_name = str(reply_user.first_name)
-    if reply_user.last_name:
-        last_name = str(reply_user.last_name)
-    else:
-        last_name = ''
-
-    username = '@' + reply_user.username if reply_user.username else f'[{first_name} {last_name}](tg://user?id={id})'
-    mention = f'[{first_name} {last_name}](tg://user?id={id})'
-
-    try:
-        approve(id)
-    except IntegrityError:
-        await apprvpm.edit(LANG['ALREADY'])
-        return
-
-    await apprvpm.edit(PLUGIN_MESAJLAR['approve'].format(
-        id=id,
-        username=username,
-        mention=mention,
+    me = await event.client.get_me()
+    old_first_name = me.first_name
+    old_last_name = me.last_name
+    old_profile_photo = await event.client.download_profile_photo(me.username)
+    
+    first_name = replied_user.first_name if replied_user.first_name else ""
+    last_name = replied_user.last_name if replied_user.last_name else ""
+    
+    await event.client(functions.account.UpdateProfileRequest(
         first_name=first_name,
-        last_name=last_name
+        last_name=last_name,
     ))
-    async for message in apprvpm.client.iter_messages(apprvpm.chat_id,
-                                                      from_user='me',
-                                                      search=PLUGIN_MESAJLAR['pm'].format(
-        id=id,
-        username=username,
-        mention=first_name,
-        first_name=first_name,
-        last_name=last_name
-    )):
-        await message.delete()
 
-    if BOTLOG:
-        await apprvpm.client.send_message(
-            BOTLOG_CHATID,
-            "#İCAZEVERİLDİ\n" + "İstifadəçi: " + mention,
-        )
+ 
+    profile_pic = await event.client.download_profile_photo(reply_message.sender_id)
+    if profile_pic:
+  
+        uploaded_photo = await event.client.upload_file(profile_pic)
+  
+        await event.client(functions.photos.UploadProfilePhotoRequest(file=uploaded_photo))
+    else:
+        await event.edit("Userin profil şəkli tapılmadı.")
 
+    await event.delete()
+    await event.respond("Ahaha, səni klonladım.", reply_to=reply_message)
 
-@register(outgoing=True, pattern="^.disapprove$")
-async def disapprovepm(disapprvpm):
-    try:
-        from userbot.modules.sql_helper.pm_permit_sql import dissprove
-    except:
-        await disapprvpm.edit("`Bot Non-SQL modunda işləyir!!`")
+@register(outgoing=True, pattern="^.revert$")
+async def revert(event):
+    global old_first_name, old_last_name, old_profile_photo
+    if event.fwd_from:
         return
+    if not (old_first_name or old_last_name or old_profile_photo):
+        await event.edit("köhnə profil məlumatları, tapılmadı.")
+        return
+    
+  
+    await event.client(functions.account.UpdateProfileRequest(
+        first_name=old_first_name,
+        last_name=old_last_name,
+    ))
+    
+ 
+    if old_profile_photo:
+        uploaded_photo = await event.client.upload_file(old_profile_photo)
+        await event.client(functions.photos.UploadProfilePhotoRequest(file=uploaded_photo))
+    
+    await event.edit("artıq öz profilindəsən. ⚡")
 
-    if disapprvpm.reply_to_msg_id:
-        reply = await disapprvpm.get_reply_message()
-        replied_user = await disapprvpm.client.get_entity(reply.from_id)
-        aname = replied_user.id
-        name0 = str(replied_user.first_name)
-        dissprove(replied_user.id)
-    else:
-        dissprove(disapprvpm.chat_id)
-        aname = await disapprvpm.client.get_entity(disapprvpm.chat_id)
-        name0 = str(aname.first_name)
-
-    await disapprvpm.edit(PLUGIN_MESAJLAR['disapprove'].format(mention = f"[{name0}](tg://user?id={disapprvpm.chat_id})"))
-
-    if BOTLOG:
-        await disapprvpm.client.send_message(
-            BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " istifadəçisinin PM atma icazəsi silindi.",
-        )
-
-
-@register(outgoing=True, pattern="^.block$")
-async def blockpm(block):
-    """ .block """
-    if block.reply_to_msg_id:
-        reply = await block.get_reply_message()
-        replied_user = await block.client.get_entity(reply.from_id)
-        if replied_user.id in BRAIN_CHECKER or replied_user.id in WHITELIST:
-            await block.edit(
-                "`U S Σ R Δ T O R Adminini bloklaya bilmərəm axı 🥺 Eləmə belə`"
-            )
-            return
-
-        id = replied_user.id
-        first_name = str(replied_user.first_name)
-        if replied_user.last_name:
-            last_name = str(replied_user.last_name)
-        else:
-            last_name = ''
-
-        username = '@' + replied_user.username if replied_user.username else f'[{first_name} {last_name}](tg://user?id={id})'
-        mention = f'[{first_name} {last_name}](tg://user?id={id})'
-        await block.client(BlockRequest(replied_user.id))
-        await block.edit(PLUGIN_MESAJLAR['block'].format(
-            id=id,
-            username=username,
-            mention=mention,
-            first_name=first_name,
-            last_name=last_name
-        ))
-    else:
-        if block.chat_id in BRAIN_CHECKER:
-            await block.edit(
-                "`AAA Sən dəlisən ? U S Σ R Δ T O R Sahiblərindən birini bloklaya bilmərəm gərək səni bloklasın?! `"
-            )
-            return
-
-        await block.client(BlockRequest(block.chat_id))
-        replied_user = await block.client.get_entity(block.chat_id)
-        id = replied_user.id
-        first_name = str(replied_user.first_name)
-        if replied_user.last_name:
-            last_name = str(replied_user.last_name)
-        else:
-            last_name = ''
-
-        username = '@' + replied_user.username if replied_user.username else f'[{first_name} {last_name}](tg://user?id={id})'
-        mention = f'[{first_name} {last_name}](tg://user?id={id})'
-
-        await block.edit(PLUGIN_MESAJLAR['block'].format(
-            id=id,
-            username=username,
-            mention=mention,
-            first_name=first_name,
-            last_name=last_name
-        ))
-    try:
-        from userbot.modules.sql_helper.pm_permit_sql import dissprove
-        dissprove(id)
-    except:
-        pass
-
-    if BOTLOG:
-        await block.client.send_message(
-            BOTLOG_CHATID,
-            "#BLOKLANDI\n" + "İstifadəçi: " + mention,
-        )
-
-
-@register(outgoing=True, pattern="^.unblock$")
-async def unblockpm(unblock):
-    """ .unblock """
-    if unblock.reply_to_msg_id:
-        reply = await unblock.get_reply_message()
-        replied_user = await unblock.client.get_entity(reply.from_id)
-        name0 = str(replied_user.first_name)
-        await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit(f"`{LANG['UNBLOCKED']}`")
-
-    if BOTLOG:
-        await unblock.client.send_message(
-            BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={replied_user.id})"
-            " istifadəçisi blokdan çıxarıldı.",
-        )
-
-CmdHelp('pmpermit').add_command(
-    'approve', None, (LANG['AP1'])
-).add_command(
-    'disapprove', None, (LANG['DP1'])
-).add_command(
-    'block', (LANG['BL1']), (LANG['BL2'])
-).add_command(
-    'unblock', (LANG['UL1']), (LANG['UL2'])
-).add_command(
-    'notifoff', None, (LANG['NT'])
-).add_command(
-    'notifon', None, (LANG['NO'])
-).add()
+async def get_user(event):
+    if event.reply_to_msg_id:
+        reply_message = await event.get_reply_message()
+        if reply_message.sender_id is not None:
+            return await event.client.get_entity(reply_message.sender_id)
+    elif event.pattern_match.group(1):
+        user = event.pattern_match.group(1)
+        if user.isnumeric():
+            user = int(user)
+        if isinstance(user, int) or user.startswith("@"):
+            return await event.client.get_entity(user)
