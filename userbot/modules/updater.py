@@ -26,7 +26,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, BRAIN_CHECKER, UPSTREAM_REPO_URL
+from userbot import CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, BRAIN_CHECKER, UPSTREAM_REPO_URL, WHITELIST
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -61,7 +61,7 @@ async def update_requirements():
     except Exception as e:
         return repr(e)
 
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.yeniu(?: |$)(.*)")
+@register(incoming=True, from_users=WHITELIST, pattern="^.yeniu(?: |$)(.*)")
 async def upstream(ups):
     ".update əmri ilə botunun yenk versiyada olub olmadığını yoxlaya bilərsiz."
     await ups.edit(LANG['DETECTING'])
