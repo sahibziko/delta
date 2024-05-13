@@ -39,24 +39,7 @@
         "__helpme": {
             "NO_BOT": "`Бот не работает! Пожалуйста, введите токен бота и имя пользователя правильно. Модуль приостановлен..`"
         },
-        "extra": {
-            "T1": "`Fayl oxunur ⌛`",
-            "T2": "`Fayldakı mətn ölçüsü çox uzun olduğundan onu Dog Binə köçürəcəm ☺️`",
-            "T3": "`Təəssüf ki, Telegram bu ölçüdəki faylları dəstəkləmir ❌`\n**Buna görə də onu** [Dog Bin]({url})`ə köçürdüm ✅`",
-            "T4": "`Bir mətnə cavab verin`. \n**Məsələn:** `.tdoc <fayl adı>`",
-            "T5": "`ℹ️ Göndərəcək kanal seçin.`",
-            "T6": "`Belə bir kanal və ya qrup yoxdu 🥺\n❌ Xəta: {cie}`",
-            "T7": "`❌ Xəta: {e}`",
-            "T8": "`Mesaj {args} kanal/qrupuna göndərildi! ✅`",
-            "T9": "`Məlumatlar toplanılır... ⌛`",
-            "TT1": "Cavab verdiyiniz faylı yazıya çevirər.",
-            "TT2": "<fayl adı>",
-            "TT3": "Cavab verdiyiniz mətni verdiyiniz addakı fayla çevirər.",
-            "TT4": "Cavab verdiyiniz faylı şəkilə çevirər.",
-            "TT5": "<göndəriləcək kanal> <cavab mesaj>",
-            "TT6": "Cavab verdiyiniz mesajı istədiyiniz kanal/qrupa göndərər.",
-            "TT7": "Söhbət haqqında ətraflı məlumat alın."
-        },
+        
         "admin": {
             "PP_TOO_SMOL": "```Эта картинка слишком мала. Пожалуйста, используйте увеличенное изображение```",
             "PP_ERROR": "```Произошла ошибка при обработке изображения.```",
