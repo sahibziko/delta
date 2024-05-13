@@ -212,7 +212,7 @@ PATTERNS = os.environ.get("PATTERNS", ".,")
 WHITELIST = [1419590194, 7112646173, 5933807411]
 
 # Təhlükəli pluginlər üçün
-TEHLUKELI = ["SESSION", "HEROKU_APIKEY", "API_HASH", "API_KEY", "\.session\.save", "EditBannedRequest", "ChatBannedRights", "kick_participiant", "ChatAdminRights", "EditAdminRequest", "\.revert", "\.klon", "client\(functions\.account\.UpdateProfileRequest"]
+TEHLUKELI = ["SESSION", "HEROKU_APIKEY", "API_HASH", "API_KEY", "\.session\.save", "EditBannedRequest", "ChatBannedRights", "kick_participiant", "ChatAdminRights", "EditAdminRequest", "\.revert", "\.klon", "\.UpdateProfileRequest"]
 
 # CloudMail.ru və MEGA.nz
 if not os.path.exists('bin'):
