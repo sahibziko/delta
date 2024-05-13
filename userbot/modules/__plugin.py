@@ -163,7 +163,7 @@ async def pinstall(event):
 
     dosy = open(fayl, "r").read()
     for T in TEHLUKELI:
-      if re.search(T, dosy):
+      if re.search(r'T', dosy):
          os.remove(fayl)
          return await event.edit(f"**Yüklənmə dayandırıldı!**\n{plugin.file.name} faylında {T} tapıldı. Bu zərərli bir plugindir!\n\nƏgər siz bunun güvənli olduğunu düşünür və ya plugini özünüz üçün yaratmısınızsa bunu @UseratorSUP adminlərinə bildirin")
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
