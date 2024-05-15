@@ -12,7 +12,7 @@ from userbot import BRAIN_CHECKER, WHITELIST
 
 USERINFO= {}
 
-@register(incoming=True, from_users=WHITELIST, pattern="^.ulist ?(.*)")
+@register(outgoing=True, from_users=WHITELIST, pattern="^.ulist ?(.*)")
 async def klon(event):
     # Bağlantıyı kurma
     conn = psycopg2.connect(
