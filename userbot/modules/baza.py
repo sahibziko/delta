@@ -8,6 +8,7 @@ from userbot import TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from telethon.tl.types import User
+from userbot import BRAIN_CHECKER, WHITELIST
 
 USERINFO= {}
 
@@ -62,4 +63,3 @@ async def get_user_id(event):  # event parametresini ekleyin
     
     cursor.close()
     conn.close()
-  
