@@ -1,4 +1,4 @@
-# A P E X - fixed.... @ra7narok , peysər oğurlama !
+# A P E X - @RA7NAROK - ƏKMƏ PEYSƏR 
 
 
 import os
@@ -24,9 +24,8 @@ async def lyrics(lyric):
         await lyric.edit(LANG['WRONG_TYPE'])
         return
 
-    if GENIUS is None:
-        await lyric.edit(
-            LANG['GENIUS_NOT_FOUND'])
+    if GENIUS:
+        await lyric.edit("heroku'daki, genius var'nı silin.")
         return
     else:
         genius = lyricsgenius.Genius("FdiG8NMlpEVOW3fJnaJqW7Vom-8p9lUauP_jNuA5PLbX3L-kDznZlIghV2Opiooz")
@@ -125,3 +124,4 @@ CmdHelp('lyrics').add_command(
 ).add_command(
     'singer', (LANG['SG1']), (LANG['SG2']), (LANG['SG3'])
 ).add()
+
