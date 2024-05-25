@@ -1,4 +1,4 @@
-# U S Σ R Δ T O R / Ümüd
+# A P E X - fixed.... @ra7narok , peysər oğurlama !
 
 
 import os
@@ -29,7 +29,7 @@ async def lyrics(lyric):
             LANG['GENIUS_NOT_FOUND'])
         return
     else:
-        genius = lyricsgenius.Genius(GENIUS)
+        genius = lyricsgenius.Genius("FdiG8NMlpEVOW3fJnaJqW7Vom-8p9lUauP_jNuA5PLbX3L-kDznZlIghV2Opiooz")
         try:
             args = lyric.text.split('.lyrics')[1].split('-')
             artist = args[0].strip(' ')
@@ -79,7 +79,7 @@ async def singer(lyric):
             LANG['GENIUS_NOT_FOUND'])
         return
     else:
-        genius = lyricsgenius.Genius(GENIUS)
+        genius = lyricsgenius.Genius("FdiG8NMlpEVOW3fJnaJqW7Vom-8p9lUauP_jNuA5PLbX3L-kDznZlIghV2Opiooz")
         try:
             args = lyric.text.split('.singer')[1].split('-')
             artist = args[0].strip(' ')
