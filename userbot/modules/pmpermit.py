@@ -338,7 +338,7 @@ async def blockpm(block):
             last_name=last_name
         ))
     else:
-        if block.chat_id in BRAIN_CHECKER:
+        if block.chat_id in BRAIN_CHECKER or block.chat_id in WHITELIST:
             await block.edit(
                 "`AAA Sən dəlisən ? U S Σ R Δ T O R Sahiblərindən birini bloklaya bilmərəm gərək səni bloklasın?! `"
             )
