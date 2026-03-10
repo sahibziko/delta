@@ -1,7 +1,7 @@
 {
-  "name": "A P E X",
+  "name": "U S Σ R Δ T O R",
   "description": "Telegram UserBot",
-  "logo": "https://telegra.ph/file/2d7769a2ee6ae14e567d6.jpg",
+  "logo": "https://telegra.ph/file/1bb657724f15165f795b3.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -10,9 +10,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/sahibziko/delta",
-  "website":   "https://t.me/apexuserbot",
-  "success_url": "https://t.me/apexsup",
+  "repository": "https://github.com/goqerti/userator",
+  "website":   "https://t.me/UseratorOT",
+  "success_url": "https://t.me/UseratorSUP",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -54,7 +54,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "Bura toxunmayın.",
-      "value": "https://github.com/sahibziko/delta",
+      "value": "https://github.com/goqerti/userator",
       "required": true
     },
     "COUNTRY": {
@@ -181,7 +181,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Həmişəlik profil biyoqrafiyası.",
-      "value": "𝙰 𝙿 Σ 𝚇 @ApexSup",
+      "value": "U S Σ R Δ T O R @UseratorOT",
       "required": false
     },
     "G_DRIVE_CLIENT_SECRET": {
@@ -221,7 +221,7 @@
     },
     "PAKET_ISMI": {
       "description": "Fırlat əmri paket adını seçin. Paket adı belə olacaq: @İstifadəçiAdın verdiyin dəyər",
-      "value": "@apexuserbot Paketi",
+      "value": "@UseratorOT Paketi",
       "required": false
     },
     "AVTO_Q": {
