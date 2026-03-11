@@ -1,5 +1,5 @@
 # Copyright (C) 2020
-# U S Σ R Δ T O R / Ümüd
+# U S Σ R Δ T O R 
 
 """ UserBot hazırlanışı """
 
