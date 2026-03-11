@@ -10,9 +10,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/goqerti/userator",
-  "website":   "https://t.me/UseratorOT",
-  "success_url": "https://t.me/UseratorSUP",
+  "repository": "https://github.com/sahibziko/delta",
+  "website":   "https://t.me/Apexuserbot",
+  "success_url": "https://t.me/apexuserbot",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -54,7 +54,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "Bura toxunmayın.",
-      "value": "https://github.com/goqerti/userator",
+      "value": "https://github.com/sahibziko/delta",
       "required": true
     },
     "COUNTRY": {
