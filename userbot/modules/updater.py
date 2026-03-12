@@ -156,7 +156,7 @@ async def upstream(ups):
             )
             repo.__del__()
             return
-        await ups.edit(LANG['HEROKU_UPDATING'])
+        await ups.respond(LANG['HEROKU_UPDATING'])
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
