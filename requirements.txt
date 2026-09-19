@@ -62,3 +62,5 @@ emoji-country-flag
 cairosvg
 imagedown
 psycopg2
+pyrogram
+pyromod
